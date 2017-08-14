@@ -10,22 +10,15 @@
 # Comment Template
 <p>I write comment of function in .h file on under template</p>
 <p>someday template can be changed</p>
- 
-<pre><code>
-#include <cstdio>
 
-int main ()
-{
-}
-
-/*
-Algorithm expression
-<Input>
-
-<Output>
-
-<Time Complexity>
-
-<ETC>
-*/
-</code></pre>
+<p>/*</p>
+<p>Algorithm expression</p>
+<p></p>
+<p><Input></p>
+<p></p>
+<p><Output></p>
+<p></p>
+<p><Time Complexity>/<p>
+<p></p>
+<p><ETC></p>
+<p>*/</p>
