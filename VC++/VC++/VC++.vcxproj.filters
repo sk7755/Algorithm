@@ -15,43 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Order_Statistic\Order_Statistic.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
+    <ClCompile Include="..\..\src\Linear_Sort\Bucket_Sort.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Linear_Sort\Counting_Sort.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Linear_Sort\Radix_Sort.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Linear_Sort\Test.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Order_Statistic\Max.cpp">
+    <ClInclude Include="..\..\src\Linear_Sort\Linear_Sort.h">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Order_Statistic\Min.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Order_Statistic\Max_Min.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Order_Statistic\Select.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Order_Statistic\Partition.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Order_Statistic\Insertion_Sort.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Order_Statistic\Linear_Select.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Order_Statistic\Partition_Median.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Order_Statistic\Randomized_Select.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Order_Statistic\Partition_Random.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Order_Statistic\Test.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+    </ClInclude>
   </ItemGroup>
 </Project>

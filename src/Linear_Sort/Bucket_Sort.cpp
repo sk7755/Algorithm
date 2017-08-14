@@ -1,26 +1,5 @@
 #include "Linear_Sort.h"
 
-/*
-
-Bucket sort (int array)
-
-<Input>
-1.	array adress
-2.	array size
-3.	lower bound of source array
-4.	upper bound of source array
-
-<output>
-1.	sorted int array
-
-<specific>
-1.	Actually this code is not stable, But It can be stable
-2.	not in place
-3.	O(n) Expected Time Complexity
-4.	O(n) Space Complexity
-
-*/
-
 typedef struct node* nptr;
 
 struct node

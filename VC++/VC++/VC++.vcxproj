@@ -19,20 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Order_Statistic\Order_Statistic.h" />
+    <ClCompile Include="..\..\src\Linear_Sort\Bucket_Sort.cpp" />
+    <ClCompile Include="..\..\src\Linear_Sort\Counting_Sort.cpp" />
+    <ClCompile Include="..\..\src\Linear_Sort\Radix_Sort.cpp" />
+    <ClCompile Include="..\..\src\Linear_Sort\Test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Order_Statistic\Insertion_Sort.cpp" />
-    <ClCompile Include="..\..\src\Order_Statistic\Linear_Select.cpp" />
-    <ClCompile Include="..\..\src\Order_Statistic\Max.cpp" />
-    <ClCompile Include="..\..\src\Order_Statistic\Max_Min.cpp" />
-    <ClCompile Include="..\..\src\Order_Statistic\Min.cpp" />
-    <ClCompile Include="..\..\src\Order_Statistic\Partition.cpp" />
-    <ClCompile Include="..\..\src\Order_Statistic\Partition_Median.cpp" />
-    <ClCompile Include="..\..\src\Order_Statistic\Partition_Random.cpp" />
-    <ClCompile Include="..\..\src\Order_Statistic\Randomized_Select.cpp" />
-    <ClCompile Include="..\..\src\Order_Statistic\Select.cpp" />
-    <ClCompile Include="..\..\src\Order_Statistic\Test.cpp" />
+    <ClInclude Include="..\..\src\Linear_Sort\Linear_Sort.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
