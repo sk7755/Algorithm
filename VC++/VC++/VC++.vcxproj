@@ -18,6 +18,22 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\Order_Statistic\Order_Statistic.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Order_Statistic\Insertion_Sort.cpp" />
+    <ClCompile Include="..\..\src\Order_Statistic\Linear_Select.cpp" />
+    <ClCompile Include="..\..\src\Order_Statistic\Max.cpp" />
+    <ClCompile Include="..\..\src\Order_Statistic\Max_Min.cpp" />
+    <ClCompile Include="..\..\src\Order_Statistic\Min.cpp" />
+    <ClCompile Include="..\..\src\Order_Statistic\Partition.cpp" />
+    <ClCompile Include="..\..\src\Order_Statistic\Partition_Median.cpp" />
+    <ClCompile Include="..\..\src\Order_Statistic\Partition_Random.cpp" />
+    <ClCompile Include="..\..\src\Order_Statistic\Randomized_Select.cpp" />
+    <ClCompile Include="..\..\src\Order_Statistic\Select.cpp" />
+    <ClCompile Include="..\..\src\Order_Statistic\Test.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DB508E2B-B37B-4712-9006-C8BDD4926EC3}</ProjectGuid>
@@ -147,15 +163,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\Linear_Sort\Bucket_Sort.cpp" />
-    <ClCompile Include="..\..\src\Linear_Sort\Counting_Sort.cpp" />
-    <ClCompile Include="..\..\src\Linear_Sort\Radix_Sort.cpp" />
-    <ClCompile Include="..\..\src\Linear_Sort\Test.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\Linear_Sort\Linear_Sort.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
