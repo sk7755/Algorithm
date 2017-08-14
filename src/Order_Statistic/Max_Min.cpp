@@ -1,22 +1,3 @@
-/*
-
-Find Max and Min element simultaneously
-
-<Input>
-1.	int array
-2.	size of array
-
-<Output>
-1.	Pair Struct ( first = max, second = min )
-
-<Time Complexity>
-1.	O(n)
-
-<ETC>
-1.	This Algorithm is faster than the method which find each
-
-*/
-
 #include "Order_Statistic.h"
 
 PAIR Max_Min(int a[], int n)

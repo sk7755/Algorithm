@@ -1,23 +1,3 @@
-/*
-
-Insertion Sort
-
-<Input>
-1. int array
-2. size of array
-
-<Output>
-1. sorted array
-
-<Time Complexity>
-1. O(n) Best Case
-2. O(n^2) Worst Case
-
-<ETC>
-
-*/
-
-
 #include "Order_Statistic.h"
 
 void Insertion_Sort(int a[], int n)

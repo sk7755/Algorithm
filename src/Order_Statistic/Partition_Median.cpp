@@ -1,25 +1,3 @@
-/*
-
-Partition Median
-
-Choose Median close Pivot and partition based pivot
-
-<Input>
-1.	int array
-
-<Output>
-2.	partitioned int array based pivot
-
-<TIme Complexity>
-1.	O(n)
-
-<ETC>
-1.	at least 3n/10 - 6 elements are less than pivot
-2.	at least 3n/10 - 6 elements are greater than pivot
-3.	proof is on assumption that all elements are distinct
-
-*/
-
 #include "Order_Statistic.h"
 
 int Partition_Median(int a[], int left, int right)
