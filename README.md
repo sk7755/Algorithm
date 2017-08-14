@@ -8,15 +8,18 @@ Study Computer Algorithm with CLRS
 4.  Test.cpp is source code which measure execution time of algorithm (Just test, not formalized)
 
 # Comment Template
-I write comment of function in .h file on under template 
-someday template can be changed
+I write comment of function in .h file on under template
+ someday template can be changed
+ 
+<pre><code>
+/*
+Algorithm expression
+<Input>
 
-Algorithm Name
+<Output>
 
-\<Input>
+<Time Complexity>
 
-\<Output>
-
-\<Time Complexity>
-
-\<ETC>
+<ETC>
+*/
+</code></pre>
