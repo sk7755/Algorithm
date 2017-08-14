@@ -14,11 +14,11 @@
 <p>/*</p>
 <p>Algorithm expression</p>
 <p></p>
-<p>&ltInput&rt</p>
+<p>&ltInput></p>
 <p></p>
-<p>&ltOutput&rt</p>
+<p>&ltOutput></p>
 <p></p>
-<p>&ltTime Complexity&rt/<p>
+<p>&ltTime Complexity>/<p>
 <p></p>
-<p>&ltETC&rt</p>
+<p>&ltETC></p>
 <p>*/</p>
