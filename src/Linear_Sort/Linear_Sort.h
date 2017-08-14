@@ -3,6 +3,8 @@
 
 #include <cstdlib>
 
-void counting_sort(int a[], int n, int left, int right);
+void Counting_Sort(int a[], int n, int left, int right);
+void Radix_Sort(int a[], int n);
+void Bucket_Sort(int a[], int n, int left, int right);
 
 #endif

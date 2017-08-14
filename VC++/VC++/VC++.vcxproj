@@ -94,6 +94,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <StackReserveSize>1000000000</StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -147,7 +148,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Linear_Sort\Bucket_Sort.cpp" />
     <ClCompile Include="..\..\src\Linear_Sort\Counting_Sort.cpp" />
+    <ClCompile Include="..\..\src\Linear_Sort\Radix_Sort.cpp" />
+    <ClCompile Include="..\..\src\Linear_Sort\Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Linear_Sort\Linear_Sort.h" />

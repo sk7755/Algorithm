@@ -5,23 +5,23 @@
 counting sort (int array)
 
 <Input>
-1. array adress
-2. array size
-3. lower bound of source array
-4. upper bound of source array
+1.	array adress
+2.	array size
+3.	lower bound of source array
+4.	upper bound of source array
 
 <output>
-1. sorted int array
+1.	sorted int array
 
 <specific>
-1. stable
-2. not in place
-3. O(k+n) Time Complexity	(k = right - left + 1)
-4. O(k) Space Complexity
+1.	stable
+2.	not in place
+3.	O(k+n) Time Complexity	(k = right - left + 1)
+4.	O(k) Space Complexity
 
 */
 
-void counting_sort(int a[], int n, int left, int right)
+void Counting_Sort(int a[], int n, int left, int right)
 {
 	int *c = (int*)malloc(sizeof(int)*(right - left + 1));
 	int *b = (int*)malloc(sizeof(int)*n);
