@@ -6,10 +6,10 @@ Study Computer Algorithm with CLRS
 
 Algorithm Name
 
-<Input>
+\<Input>
 
-<Output>
+\<Output>
 
-<Specific>
+\<Specific>
 
 */
