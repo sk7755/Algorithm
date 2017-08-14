@@ -10,6 +10,8 @@ Algorithm Name
 
 \<Output>
 
-\<Specific>
+\<Time Complexity>
+
+\<ETC>
 
 */
