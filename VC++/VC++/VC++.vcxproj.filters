@@ -15,22 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Linear_Sort\Bucket_Sort.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Linear_Sort\Counting_Sort.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Linear_Sort\Radix_Sort.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Linear_Sort\Test.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+    <ClInclude Include="..\..\src\Priority_Queue\Priority_Queue.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Linear_Sort\Linear_Sort.h">
+    <ClCompile Include="..\..\src\Priority_Queue\Priority_Queue.cpp">
       <Filter>소스 파일</Filter>
-    </ClInclude>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Priority_Queue\Test.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
