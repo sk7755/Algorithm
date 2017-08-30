@@ -19,11 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Priority_Queue\Priority_Queue.h" />
+    <ClInclude Include="..\..\src\Elementary_Data_Structure\Stack.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Priority_Queue\Priority_Queue.cpp" />
-    <ClCompile Include="..\..\src\Priority_Queue\Test.cpp" />
+    <ClCompile Include="..\..\src\Elementary_Data_Structure\Stack.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

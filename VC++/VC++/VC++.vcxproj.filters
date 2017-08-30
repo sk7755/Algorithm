@@ -15,15 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Priority_Queue\Priority_Queue.h">
+    <ClInclude Include="..\..\src\Elementary_Data_Structure\Stack.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Priority_Queue\Priority_Queue.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Priority_Queue\Test.cpp">
+    <ClCompile Include="..\..\src\Elementary_Data_Structure\Stack.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
