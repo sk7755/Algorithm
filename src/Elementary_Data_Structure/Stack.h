@@ -21,23 +21,28 @@ public:
 
 	//Push the key
 	//Input:	key ( which you want to push )
+	//Time:		O(1)
 	void push(int key);
 
 	//Return top of stack
 	//Output:	top of stack
+	//Time:		O(1)
 	int top();
 
 	//Pop the key
+	//Time:		O(1)
 	void pop();
 
 	//Let you know whether stack is empty or not
 	//Output:	1 (if stack is empty)
 	//			0 (if stack is not empty)
+	//Time:		O(1)
 	int empty();
 
 	//Let you know whether stack is full or not
 	//Output:	1 (if stack is full)
 	//			0 (if stack is not full)
+	//Time:		O(1)
 	int full();
 
 	//Destructor of Stack Class
