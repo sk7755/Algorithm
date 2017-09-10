@@ -1,26 +1,30 @@
 #include "Stack.h"
 #include "Queue.h"
+#include "Linked_List.h"
 
 int main()
 {
-	int size;
-	scanf("%d", &size);
-	Queue queue(size);
+	Linked_List L;
 	while (1)
 	{
 		int op;
+		int key;
 		scanf("%d", &op);
 
 		if (op == 1)
 		{
-			int key;
 			scanf("%d", &key);
-			queue.push(key);
+			L.push(key);
 		}
 		else if (op == 2)
 		{
-			printf("%d\n", queue.top());
-			queue.pop();
+			
+			scanf("%d", &key);
+			L.pop(L.search(key));
+		}
+		else if (op == 3)
+		{
+			L.print();
 		}
 	}
 

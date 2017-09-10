@@ -19,12 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Elementary_Data_Structure\Queue.h" />
-    <ClInclude Include="..\..\src\Elementary_Data_Structure\Stack.h" />
+    <ClInclude Include="..\..\src\Elementary_Data_Structure\Linked_List.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Elementary_Data_Structure\Queue.cpp" />
-    <ClCompile Include="..\..\src\Elementary_Data_Structure\Stack.cpp" />
+    <ClCompile Include="..\..\src\Elementary_Data_Structure\Linked_List.cpp" />
     <ClCompile Include="..\..\src\Elementary_Data_Structure\Test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

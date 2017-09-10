@@ -15,18 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Elementary_Data_Structure\Queue.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\Elementary_Data_Structure\Stack.h">
+    <ClInclude Include="..\..\src\Elementary_Data_Structure\Linked_List.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Elementary_Data_Structure\Queue.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Elementary_Data_Structure\Stack.cpp">
+    <ClCompile Include="..\..\src\Elementary_Data_Structure\Linked_List.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Elementary_Data_Structure\Test.cpp">
