@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Elementary_Data_Structure\Linked_List.h" />
+    <ClCompile Include="..\..\src\Elementary_Data_Structure\Rooted_Tree.cpp" />
+    <ClCompile Include="..\..\src\Elementary_Data_Structure\Test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Elementary_Data_Structure\Linked_List.cpp" />
-    <ClCompile Include="..\..\src\Elementary_Data_Structure\Test.cpp" />
+    <ClInclude Include="..\..\src\Elementary_Data_Structure\Rooted_Tree.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
