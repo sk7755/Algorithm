@@ -19,11 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Elementary_Data_Structure\Rooted_Tree.cpp" />
-    <ClCompile Include="..\..\src\Elementary_Data_Structure\Test.cpp" />
+    <ClInclude Include="..\..\src\Hash_Tables\Chaining.h" />
+    <ClInclude Include="..\..\src\Hash_Tables\Hash_Function.h" />
+    <ClInclude Include="..\..\src\Hash_Tables\Open_Addressing.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Elementary_Data_Structure\Rooted_Tree.h" />
+    <ClCompile Include="..\..\src\Hash_Tables\Chaining.cpp" />
+    <ClCompile Include="..\..\src\Hash_Tables\Hash_Function.cpp" />
+    <ClCompile Include="..\..\src\Hash_Tables\Open_Addressing.cpp" />
+    <ClCompile Include="..\..\src\Hash_Tables\test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
