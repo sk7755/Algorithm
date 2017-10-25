@@ -20,11 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Binary_Search_Tree\BST.h" />
-    <ClInclude Include="..\..\src\Red_Black_Tree\RBT.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Binary_Search_Tree\BST.cpp" />
-    <ClCompile Include="..\..\src\Red_Black_Tree\RBT.cpp" />
+    <ClCompile Include="..\..\src\Binary_Search_Tree\test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -96,7 +95,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>

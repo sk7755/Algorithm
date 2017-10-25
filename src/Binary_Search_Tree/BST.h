@@ -1,26 +1,27 @@
 #ifndef __BST_H__
 #define __BST_H__
 
-typedef struct NODE* nptr;
-
+template <class T>
 struct NODE
 {
-	int key;
-	nptr left, right;
-	nptr parent;
+	T key;
+	NODE *left, *right;
+	NODE *parent;
 };
 
+template <class T>
 class BST
 {
-protected:
+private:
+	using nptr = NODE<T>*;
 	nptr root;
 	int n;
 public:
 	BST();
 	int isempty();
 	int size();
-	void insertion(int key);
-	nptr search(int key);
+	void insertion(T key);
+	nptr search(T key);
 	void deletion(nptr x);
 	void transparent(nptr u, nptr v);
 	void left_rotation(nptr x);
@@ -35,5 +36,5 @@ public:
 	void cleaner(nptr x);
 	~BST();
 };
-
+#include "BST.cpp"
 #endif

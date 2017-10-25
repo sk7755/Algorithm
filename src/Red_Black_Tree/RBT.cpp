@@ -1,15 +1,15 @@
 #include "RBT.h"
 
-RBT::RBT() : BST()
+RBT::RBT() :n(0)
 {
-	sentinel = new RB_NODE;
+	sentinel = new NODE;
 	sentinel->color = BLACK;
 	root = sentinel;
 }
 
 void RBT::insertion(int key)
 {
-	rbnptr pnew = new RB_NODE;
+	nptr pnew = new NODE;
 	pnew->key = key;
 	pnew->left = pnew->right = nullptr;
 
@@ -39,15 +39,10 @@ void RBT::insertion(int key)
 	insert_fixup(pnew);
 }
 
-void RBT::insert_fixup(rbnptr x)
+void RBT::insert_fixup(nptr x)
 {
-	while (((rbnptr)(x->parent))->color == RED)
+	while (x->parent->color == RED)
 	{
-
+		;
 	}
 }
-rbnptr RBT::search(int key);
-void RBT::deletion(rbnptr x);
-void RBT::delete_fixup(rbnptr x);
-int RBT::black_height(rbnptr x);
-RBT::~RBT();

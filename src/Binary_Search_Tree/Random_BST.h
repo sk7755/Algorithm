@@ -3,10 +3,11 @@
 
 #include "BST.h"
 
-class Random_BST : public BST
+template <class T>
+class Random_BST : public BST<T>
 {
 public:
-	Random_BST(int a[], int n);
+	Random_BST(T a[], int n);
 };
 
 #endif

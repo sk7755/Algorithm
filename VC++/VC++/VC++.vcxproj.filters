@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Red_Black_Tree\RBT.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\Binary_Search_Tree\BST.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -26,7 +23,7 @@
     <ClCompile Include="..\..\src\Binary_Search_Tree\BST.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Red_Black_Tree\RBT.cpp">
+    <ClCompile Include="..\..\src\Binary_Search_Tree\test.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

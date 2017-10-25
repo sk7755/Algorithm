@@ -1,22 +1,33 @@
+#ifndef __BST_CPP__
+#define __BST_CPP__
+
 #include "BST.h"
-#include <cstdio>
+#include <iostream>
 
-BST::BST() : n(0), root(nullptr) {}
+using namespace std;
 
-int BST::isempty()
+template <class T>
+BST<T>::BST() : n(0), root(nullptr) {}
+
+template <class T>
+int BST<T>::isempty()
 {
 	if (n == 0)
 		return 1;
 	else
 		return 0;
 }
-int BST::size()
+
+template <class T>
+int BST<T>::size()
 {
 	return n;
 }
-void BST::insertion(int key)
+
+template <class T>
+void BST<T>::insertion(T key)
 {
-	nptr pnew = new NODE;
+	nptr pnew = new NODE<T>;
 	pnew->key = key;
 	pnew->left = pnew->right = nullptr;
 	
@@ -43,7 +54,9 @@ void BST::insertion(int key)
 		y->left = pnew;
 	n++;
 }
-nptr BST::search(int key)
+
+template <class T>
+NODE<T>* BST<T>::search(T key)
 {
 	nptr x = root;
 
@@ -60,7 +73,8 @@ nptr BST::search(int key)
 	return nullptr;
 }
 
-void BST::transparent(nptr u, nptr v)
+template <class T>
+void BST<T>::transparent(nptr u, nptr v)
 {
 	if (u == root)
 		root = v;
@@ -73,7 +87,8 @@ void BST::transparent(nptr u, nptr v)
 		v->parent = u->parent;
 }
 
-void BST::left_rotation(nptr x)
+template <class T>
+void BST<T>::left_rotation(nptr x)
 {
 	nptr y = x->right;	//assume that x,y is not nullptr
 	x->right = y->left;
@@ -90,7 +105,8 @@ void BST::left_rotation(nptr x)
 	x->parent = y;
 }
 
-void BST::right_rotation(nptr x)
+template <class T>
+void BST<T>::right_rotation(nptr x)
 {
 	nptr y = x->left;	//assume that x,y is not nullptr
 	x->left = y->right;
@@ -107,14 +123,16 @@ void BST::right_rotation(nptr x)
 	x->parent = y;
 }
 
-nptr BST::min(nptr x)
+template <class T>
+NODE<T>* BST<T>::min(nptr x)
 {
 	while (x->left)
 		x = x->left;
 
 	return x;
 }
-nptr BST::max(nptr x)
+template <class T>
+NODE<T>* BST<T>::max(nptr x)
 {
 	while (x->right)
 		x = x->right;
@@ -122,7 +140,8 @@ nptr BST::max(nptr x)
 	return x;
 }
 
-nptr BST::successor(nptr x)
+template <class T>
+NODE<T>* BST<T>::successor(nptr x)
 {
 	if (x->right)
 		return min(x->right);
@@ -133,7 +152,8 @@ nptr BST::successor(nptr x)
 	return x->parent;
 }
 
-nptr BST::predecessor(nptr x)
+template <class T>
+NODE<T>* BST<T>::predecessor(nptr x)
 {
 	if (x->left)
 		return max(x->left);
@@ -144,7 +164,8 @@ nptr BST::predecessor(nptr x)
 	return x->parent;
 }
 
-void BST::deletion(nptr x)
+template <class T>
+void BST<T>::deletion(nptr x)
 {
 	if (x == nullptr)
 		return;
@@ -171,7 +192,8 @@ void BST::deletion(nptr x)
 	n--;
 }
 
-void BST::nonrecursive_print()	//nonrecursive
+template <class T>
+void BST<T>::nonrecursive_print()	//nonrecursive
 {
 	nptr x = root;
 	int pre = 0; //0 = parent, 1 = left child, 2 = right child 
@@ -190,7 +212,7 @@ void BST::nonrecursive_print()	//nonrecursive
 		}
 		if (pre == 1)
 		{
-			printf("%d ", x->key);
+			cout << x->key << ' ';
 			if (x->right)
 			{
 				pre = 0;
@@ -211,28 +233,31 @@ void BST::nonrecursive_print()	//nonrecursive
 			x = x->parent;
 		}
 	}
-	printf("\n");
+	cout << endl;
 }
 
-void BST::print_tree(nptr x)
+template <class T>
+void BST<T>::print_tree(nptr x)
 {
 	if (x == nullptr)
 		return;
 
 	print_tree(x->left);
-	printf("%d ", x->key);
+	cout << x->key << ' ';
 	print_tree(x->right);
 
 	return;
 }
 
-void BST::print()
+template <class T>
+void BST<T>::print()
 {
 	print_tree(root);
-	printf("\n");
+	cout << endl;
 }
 
-void BST::cleaner(nptr x)
+template <class T>
+void BST<T>::cleaner(nptr x)
 {
 	if (x == nullptr)
 		return;
@@ -241,7 +266,10 @@ void BST::cleaner(nptr x)
 	delete x;
 }
 
-BST::~BST()
+template <class T>
+BST<T>::~BST()
 {
 	cleaner(root);
 }
+
+#endif
