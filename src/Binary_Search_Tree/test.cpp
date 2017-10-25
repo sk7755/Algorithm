@@ -1,9 +1,13 @@
 #include "BST.h"
 #include <cstdio>
+#include "Random_BST.h"
 
 int main()
 {
-	BST T;
+	int a[10] = { 1,2,3,4,5,6,7,8,9,10 };
+
+	Random_BST T(a,10);
+	T.print();
 
 	while (1)
 	{

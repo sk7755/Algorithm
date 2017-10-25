@@ -40,6 +40,7 @@ void BST::insertion(int key)
 		y->right = pnew;
 	else
 		y->left = pnew;
+	n++;
 }
 nptr BST::search(int key)
 {
@@ -131,6 +132,7 @@ void BST::deletion(nptr x)
 	}
 
 	delete x;
+	n--;
 }
 
 void BST::nonrecursive_print()	//nonrecursive
