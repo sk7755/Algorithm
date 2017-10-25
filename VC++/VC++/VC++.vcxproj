@@ -18,6 +18,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\Binary_Search_Tree\BST.h" />
+    <ClInclude Include="..\..\src\Red_Black_Tree\RBT.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Binary_Search_Tree\BST.cpp" />
+    <ClCompile Include="..\..\src\Red_Black_Tree\RBT.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DB508E2B-B37B-4712-9006-C8BDD4926EC3}</ProjectGuid>

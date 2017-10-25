@@ -2,6 +2,7 @@
 #include <cstdio>
 
 BST::BST() : n(0), root(nullptr) {}
+
 int BST::isempty()
 {
 	if (n == 0)
@@ -71,6 +72,41 @@ void BST::transparent(nptr u, nptr v)
 	if (v != nullptr)
 		v->parent = u->parent;
 }
+
+void BST::left_rotation(nptr x)
+{
+	nptr y = x->right;	//assume that x,y is not nullptr
+	x->right = y->left;
+	if (y->left)
+		y->left->parent = x;
+	y->parent = x->parent;
+	if (!(x->parent))
+		root = y;
+	else if (x == x->parent->left)
+		x->parent->left == y;
+	else
+		x->parent->right = y;
+	y->left = x;
+	x->parent = y;
+}
+
+void BST::right_rotation(nptr x)
+{
+	nptr y = x->left;	//assume that x,y is not nullptr
+	x->left = y->right;
+	if (y->right)
+		y->right->parent = x;
+	y->parent = x->parent;
+	if (!(x->parent))
+		root = y;
+	else if (x == x->parent->left)
+		x->parent->left == y;
+	else
+		x->parent->right = y;
+	y->right = x;
+	x->parent = y;
+}
+
 nptr BST::min(nptr x)
 {
 	while (x->left)
