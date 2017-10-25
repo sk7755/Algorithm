@@ -18,6 +18,7 @@ private:
 	int n;
 public:
 	BST();
+	BST(T a[], int n);
 	int isempty();
 	int size();
 	void insertion(T key);

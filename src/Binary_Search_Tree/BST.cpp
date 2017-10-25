@@ -2,12 +2,21 @@
 #define __BST_CPP__
 
 #include "BST.h"
+#include "../Random_Permute/Random_Permute.h"
 #include <iostream>
 
 using namespace std;
 
 template <class T>
 BST<T>::BST() : n(0), root(nullptr) {}
+
+template <class T>
+BST<T>::BST(T a[], int n)
+{
+	knuth_shuffle(a, n);
+	for (int i = 0; i < n; i++)
+		insertion(a[i]);
+}
 
 template <class T>
 int BST<T>::isempty()
