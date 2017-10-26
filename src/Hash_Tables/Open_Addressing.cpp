@@ -1,47 +1,79 @@
-#include "Open_Addressing.h"
+#ifndef __OPEN_ADDRESSING_CPP__
+#define __OPEN_ADDRESSING_CPP__
 
-Open_Addressing::Open_Addressing(int n, int(*hash)(int, int, int)) : n(n), hash(hash)
+#include "Open_Addressing.h"
+#include <iostream>
+
+using namespace std;
+
+template <class T>
+Open_Addressing<T>::Open_Addressing(int n, int(*hash)(T, int, int)) : n(n), hash(hash)
 {
-	data = new int[n];
+	status = new int[n];
+	data = new T*[n];
+
 	for (int i = 0; i < n; i++)
-		data[i] = EMPTY;
+		status[i] = EMPTY;
 }
-int Open_Addressing::insertion(int key)
+
+template <class T>
+int Open_Addressing<T>::insertion(T key)
 {
 	for (int i = 0; i < n; i++)
 	{
 		int x = hash(key, i, n);
-		if (data[x] == EMPTY || data[x] == DELETED)
+		if (status[x] == EMPTY || status[x] == DELETED)
 		{
-			data[x] = key;
+			data[x] = new T(key);
+			status[x] = FULL;
 			return x;
 		}
 	}
 }
-int Open_Addressing::search(int key)
+
+template <class T>
+int Open_Addressing<T>::search(T key)
 {
 	for (int i = 0; i < n; i++)
 	{
 		int x = hash(key, i, n);
-		if (data[x] == key)
+		if (*data[x] == key)
 			return x;
-		if (data[x] == EMPTY)
+		if (status[x] == EMPTY)
 			return -1;	//not exist
 	}
 	return -1;	//full
 }
-void Open_Addressing::deletion(int slot)
+
+template <class T>
+void Open_Addressing<T>::deletion(int slot)
 {
-	data[slot] = DELETED;
+	delete data[slot];
+	status[slot] = DELETED;
 }
 
-void Open_Addressing::print()
+template <class T>
+void Open_Addressing<T>::print()
 {
 	for (int i = 0; i < n; i++)
-		printf("%d ", data[i]);
-	printf("\n");
+	{
+		if(status[i] == FULL)
+			cout << "SLOT "<<i<<" : " <<*data[i] << endl;
+	}
 }
-Open_Addressing::~Open_Addressing()
+
+template <class T>
+Open_Addressing<T>::~Open_Addressing()
 {
-	delete[]data;
+	for (int i = 0; i < n; i++)
+	{
+		if (status[i] == FULL)
+		{
+			delete data[i];
+		}
+	}
+	delete[] status;
+	delete[] data;
 }
+
+#endif

@@ -2,8 +2,9 @@
 #define __BST_CPP__
 
 #include "BST.h"
-#include "../Random_Permute/Random_Permute.h"
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -16,6 +17,29 @@ BST<T>::BST(T a[], int n)
 	knuth_shuffle(a, n);
 	for (int i = 0; i < n; i++)
 		insertion(a[i]);
+}
+
+template <class T>
+void BST<T>::knuth_shuffle(T a[], int n)
+{
+	init_seed();
+	for (int i = 0; i < n; i++)
+	{
+		std::swap(a[i], a[uniform(i, n - 1)]);
+	}
+}
+
+template <class T>
+void BST<T>::init_seed()
+{
+	srand(time(NULL));
+}
+
+template <class T>
+int BST<T>::uniform(int a, int b)
+{
+	int value = rand() | (rand() << 15);
+	return value % (b - a + 1) + a;
 }
 
 template <class T>

@@ -17,7 +17,7 @@ struct NODE
 
 class RBT
 {
-protected:
+private:
 	nptr root;
 	int n;
 	nptr sentinel;

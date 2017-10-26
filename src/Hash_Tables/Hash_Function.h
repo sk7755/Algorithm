@@ -1,4 +1,5 @@
 //	Hash functions which need to use hash table
+//	this is int key hash function
 //	CLRS 11.3 Hash functions, 11.4 Open addressing
 //	Written by Jeong Jae Hoon 2017-10-17
 

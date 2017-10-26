@@ -1,20 +1,29 @@
-#include "Chaining.h"
+#ifndef __CHAINING_CPP__
+#define __CHAINING_CPP__
 
-Chaining::Chaining(int n, int(*hash)(int, int)) :n(n), hash(hash)
+#include "Chaining.h"
+#include <iostream>
+
+using namespace std;
+
+template <class T>
+Chaining<T>::Chaining(int n, int(*hash)(T, int)) :n(n), hash(hash)
 {
 	data = new nptr[n];
+	sentinel = new nptr[n];
 	for (int i = 0; i < n; i++)
 	{
-		data[i] = new NODE;
+		data[i] = new NODE<T>;
 		data[i]->next = data[i]->pre = data[i];
-		data[i]->key = sentinel;
+		sentinel[i] = data[i];
 	}
 }
-void Chaining::insertion(int key)
+
+template <class T>
+void Chaining<T>::insertion(T key)
 {
 	int x = hash(key, n);
-	printf("%d insert\n", x);
-	nptr pnew = new NODE;
+	nptr pnew = new NODE<T>;
 	pnew->key = key;
 	pnew->next = data[x];
 	pnew->pre = data[x]->pre;
@@ -22,10 +31,12 @@ void Chaining::insertion(int key)
 	pnew->next->pre = pnew;
 	data[x] = pnew;
 }
-nptr Chaining::search(int key)
+
+template <class T>
+NODE<T>* Chaining<T>::search(T key)
 {
 	int x = hash(key, n);
-	for (nptr p = data[x]; p->key != sentinel; p = p->next)
+	for (nptr p = data[x]; p != sentinel[x]; p = p->next)
 	{
 		if (p->key == key)
 			return p;
@@ -33,7 +44,9 @@ nptr Chaining::search(int key)
 
 	return nullptr;
 }
-void Chaining::deletion(nptr p)
+
+template <class T>
+void Chaining<T>::deletion(nptr p)
 {
 	if (!p)
 		return;
@@ -48,25 +61,27 @@ void Chaining::deletion(nptr p)
 	delete p;
 }
 
-void Chaining::print()
+template <class T>
+void Chaining<T>::print()
 {
 	for (int i = 0; i < n; i++)
 	{
-		for (nptr p = data[i]; p->key != sentinel; p = p->next)
+		cout << "SLOT " << i << " : ";
+		for (nptr p = data[i]; p != sentinel[i]; p = p->next)
 		{
-			printf("%d ", p->key);
+			cout << p->key << ' ';
 		}
-		if(data[i]->key != sentinel)
-			printf("\n");
+		cout << endl;
 	}
 }
 
-Chaining::~Chaining()
+template <class T>
+Chaining<T>::~Chaining()
 {
 	for (int i = 0; i < n; i++)
 	{
 		nptr del = nullptr;
-		for (nptr p = data[i]; p->key != sentinel; p = p->next)
+		for (nptr p = data[i]; p != sentinel[i]; p = p->next)
 		{
 			if (del)
 				delete del;
@@ -75,4 +90,7 @@ Chaining::~Chaining()
 		delete del;
 	}
 	delete[]data;
+	delete[]sentinel;
 }
+
+#endif

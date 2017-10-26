@@ -46,3 +46,45 @@ void RBT::insert_fixup(nptr x)
 		;
 	}
 }
+
+nptr RBT::search(int key)
+{
+	nptr x = root;
+
+	while (x != sentinel)
+	{
+		if (x->key < key)
+			x = x->right;
+		else if (x->key > key)
+			x = x->left;
+		else
+			return x;
+	}
+
+	return nullptr;	//nullptr or sentinel
+}
+
+int RBT::black_height(nptr x)	//internal node
+{
+	int black_height = 0;
+
+	while (x != sentinel)
+	{
+		if (x->color = BLACK)
+			black_height++;
+	}
+
+	return black_height;
+}
+
+int RBT::isempty()
+{
+	if (n == 0)
+		return 1;
+	else
+		return 0;
+}
+int RBT::size()
+{
+	return n;
+}

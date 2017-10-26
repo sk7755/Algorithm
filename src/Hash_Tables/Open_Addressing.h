@@ -5,39 +5,40 @@
 #ifndef __OPEN_ADDRESSING_H__
 #define __OPEN_ADDRESSING_H__
 
-#include <cstdio>
-
-enum {
-	DELETED = -2000000000,
-	EMPTY = -1999999999
-};
-
+template <class T>
 class Open_Addressing
 {
 private:
+	enum {
+		DELETED,
+		EMPTY,
+		FULL
+	};
+
 	int n;
-	int* data;
-	int(*hash)(int, int, int);
+	T** data;
+	int *status;
+	int(*hash)(T, int, int);
 public:
 
 	//	Constructor of hash table
 	//	Input:	1. size of hash table
 	//			2. hash function which inputs are key, i th , size of hash table and output is slot index
 	//	Time:	O(n)
-	Open_Addressing(int n, int(*hash)(int, int, int));
+	Open_Addressing(int n, int(*hash)(T, int, int));
 
 	//	Insert key to hash table
 	//	Input:	1. key
 	//	Output:	1. slot number which key go to
 	//	Time:	average O(1/(1-a)) (a is load factor a = n/m < 1)
-	int insertion(int key);
+	int insertion(T key);
 
 	//	Search key in hash table
 	//	Input:	1. key
 	//	Output:	1. slot number where key exist. if there not exist, return NULL pointer
 	//	Time:	Unsuccessful search average O(1/(1-a))
 	//			Successful search average  O( (1/a) * ln(1/(1-a)) )
-	int search(int key);
+	int search(T key);
 
 	//	Delete key in hash table
 	//	Input:	1. slot number
@@ -53,4 +54,5 @@ public:
 	~Open_Addressing();
 };
 
+#include "Open_Addressing.cpp"
 #endif

@@ -16,6 +16,15 @@ private:
 	using nptr = NODE<T>*;
 	nptr root;
 	int n;
+
+	void knuth_shuffle(T a[], int n);
+	void init_seed();
+	int uniform(int a, int b);
+	void transparent(nptr u, nptr v);
+	void left_rotation(nptr x);
+	void right_rotation(nptr x);
+	void cleaner(nptr x);
+	void print_tree(nptr x);
 public:
 	BST();
 	BST(T a[], int n);
@@ -24,17 +33,12 @@ public:
 	void insertion(T key);
 	nptr search(T key);
 	void deletion(nptr x);
-	void transparent(nptr u, nptr v);
-	void left_rotation(nptr x);
-	void right_rotation(nptr x);
 	nptr min(nptr x);
 	nptr max(nptr x);
 	nptr successor(nptr x);
 	nptr predecessor(nptr x);
-	void print_tree(nptr x);
 	void print();
 	void nonrecursive_print();
-	void cleaner(nptr x);
 	~BST();
 };
 #include "BST.cpp"

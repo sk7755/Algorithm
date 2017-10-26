@@ -9,9 +9,8 @@ int main()
 	int n;
 	scanf("%d", &n);
 
-	Chaining* chain = new Chaining(n, division_hash);
-	Open_Addressing* open_address = new Open_Addressing(n, double_hash);
-	
+	Chaining<int>* chain = new Chaining<int>(n, division_hash);
+	Open_Addressing<int>* open_address = new Open_Addressing<int>(n, double_hash);	
 	
 	while (1)
 	{
