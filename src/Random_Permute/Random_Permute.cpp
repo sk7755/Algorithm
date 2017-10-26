@@ -1,14 +1,18 @@
+#ifndef __RANDOM_PERMUTE_CPP__
+#define __RANDOM_PERMUTE_CPP__
+
 #include "Random_Permute.h"
 #include <cstdlib>
 #include <ctime>
 #include <process.h>
 #include <algorithm>
 
-void sort_permute(int a[], int n)
+template <class T>
+void sort_permute(T a[], int n)
 {
 	init_seed();
 
-	element* p = new element[n];
+	element<T>* p = new element<T>[n];
 
 	int limit = n*n*n;
 	if (n > 1000)
@@ -29,12 +33,14 @@ void sort_permute(int a[], int n)
 
 }
 
-int cmp_element(element& a, element& b)
+template <class T>
+int cmp_element(element<T>& a, element<T>& b)
 {
 	return a.priority < b.priority;
 }
 
-void knuth_shuffle(int a[], int n)
+template <class T>
+void knuth_shuffle(T a[], int n)
 {
 	init_seed();
 	for (int i = 0; i < n; i++)
@@ -43,17 +49,20 @@ void knuth_shuffle(int a[], int n)
 	}
 }
 
+template <class T>
 void init_seed()
 {
 	srand(time(NULL));
 }
 
+template <class T>
 void complicate_init_seed()
 {
 	unsigned long seed = mix(clock(), time(NULL), _getpid());
 	srand(seed);
 }
 
+template <class T>
 unsigned long mix(unsigned long a, unsigned long b, unsigned long c)
 {
 	a = a - b;  a = a - c;  a = a ^ (c >> 13);
@@ -68,8 +77,11 @@ unsigned long mix(unsigned long a, unsigned long b, unsigned long c)
 	return c;
 }
 
+template <class T>
 int uniform(int a, int b)
 {
 	int value = rand() | (rand() << 15);
 	return value % (b - a + 1) + a;
 }
+
+#endif
