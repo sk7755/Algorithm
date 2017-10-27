@@ -21,27 +21,31 @@ private:
 	nptr root;
 	int n;
 	nptr sentinel;
-public:
-	RBT();
-	void insertion(int key);
+
 	void insert_fixup(nptr x);
-	nptr search(int key);
-	void deletion(nptr x);
 	void delete_fixup(nptr x);
-	int black_height(nptr x);
-	int isempty();
-	int size();
 	void transparent(nptr u, nptr v);
 	void left_rotation(nptr x);
 	void right_rotation(nptr x);
-	nptr min(nptr x);
-	nptr max(nptr x);
+	nptr min_subtree(nptr x);
+	nptr max_subtree(nptr x);
+	void print_tree(nptr x);
+	void cleaner(nptr x);
+
+public:
+	RBT();
+	void insertion(int key);
+	nptr search(int key);
+	void deletion(nptr x);
+	int black_height(nptr x);
+	int isempty();
+	int size();
+	int max();
+	int min();
 	nptr successor(nptr x);
 	nptr predecessor(nptr x);
-	void print_tree(nptr x);
 	void print();
 	void nonrecursive_print();
-	void cleaner(nptr x);
 	~RBT();
 };
 

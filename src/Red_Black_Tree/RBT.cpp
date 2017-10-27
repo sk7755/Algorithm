@@ -113,7 +113,7 @@ void RBT::deletion(nptr x)
 	}
 	else
 	{
-		nptr y = min(x->right);
+		nptr y = min_subtree(x->right);
 		y_orig_color = y->color;
 		z = y->right;
 		if (y->parent == x)
@@ -299,26 +299,48 @@ void RBT::right_rotation(nptr x)
 	x->parent = y;
 }
 
-nptr RBT::min(nptr x)
+nptr RBT::min_subtree(nptr x)
 {
-	while (x->left != sentinel)
-		x = x->left;
-
+	if (x != sentinel)
+	{
+		while (x->left != sentinel)
+			x = x->left;
+	}
 	return x;
 }
 
-nptr RBT::max(nptr x)
+int RBT::min()
 {
-	while (x->right != sentinel)
-		x = x->right;
+	nptr x = min_subtree(root);
+	if (root != sentinel)
+		return x->key;
+	else
+		throw new exception("root is sentinel");
+}
 
+nptr RBT::max_subtree(nptr x)
+{
+	if (x != sentinel)
+	{
+		while (x->right != sentinel)
+			x = x->right;
+	}
 	return x;
+}
+
+int RBT::max()
+{
+	nptr x = max_subtree(root);
+	if (root != sentinel)
+		return x->key;
+	else
+		throw new exception("root is sentinel");
 }
 
 nptr RBT::successor(nptr x)
 {
 	if (x->right != sentinel)
-		return min(x->right);
+		return min_subtree(x->right);
 
 	while (x != root && x->parent->right == x)
 		x = x->parent;
@@ -329,7 +351,7 @@ nptr RBT::successor(nptr x)
 nptr RBT::predecessor(nptr x)
 {
 	if (x->left != sentinel)
-		return max(x->left);
+		return max_subtree(x->left);
 
 	while (x != root && x->parent->left == x)
 		x = x->parent;
