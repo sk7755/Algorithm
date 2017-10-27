@@ -26,6 +26,7 @@ int main()
 		case 3:
 			T.print();
 			T.nonrecursive_print();
+			cout << T.min() << ' ' << T.max() << endl;
 			break;
 		case 4:
 			return 0;

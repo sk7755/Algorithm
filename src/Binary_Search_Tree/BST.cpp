@@ -120,52 +120,26 @@ void BST<T>::transparent(nptr u, nptr v)
 		v->parent = u->parent;
 }
 
-template <class T>
-void BST<T>::left_rotation(nptr x)
-{
-	nptr y = x->right;	//assume that x,y is not nullptr
-	x->right = y->left;
-	if (y->left)
-		y->left->parent = x;
-	y->parent = x->parent;
-	if (!(x->parent))
-		root = y;
-	else if (x == x->parent->left)
-		x->parent->left == y;
-	else
-		x->parent->right = y;
-	y->left = x;
-	x->parent = y;
-}
 
 template <class T>
-void BST<T>::right_rotation(nptr x)
-{
-	nptr y = x->left;	//assume that x,y is not nullptr
-	x->left = y->right;
-	if (y->right)
-		y->right->parent = x;
-	y->parent = x->parent;
-	if (!(x->parent))
-		root = y;
-	else if (x == x->parent->left)
-		x->parent->left == y;
-	else
-		x->parent->right = y;
-	y->right = x;
-	x->parent = y;
-}
-
-template <class T>
-NODE<T>* BST<T>::min(nptr x)
+NODE<T>* BST<T>::min_subtree(nptr x)
 {
 	while (x->left)
 		x = x->left;
 
 	return x;
 }
+
 template <class T>
-NODE<T>* BST<T>::max(nptr x)
+T BST<T>::min()
+{
+	nptr x = min_subtree(root);
+	if (x)
+		return x->key;
+}
+
+template <class T>
+NODE<T>* BST<T>::max_subtree(nptr x)
 {
 	while (x->right)
 		x = x->right;
@@ -174,10 +148,18 @@ NODE<T>* BST<T>::max(nptr x)
 }
 
 template <class T>
+T BST<T>::max()
+{
+	nptr x = max_subtree(root);
+	if (x)
+		return x->key;
+}
+
+template <class T>
 NODE<T>* BST<T>::successor(nptr x)
 {
 	if (x->right)
-		return min(x->right);
+		return min_subtree(x->right);
 
 	while (x != root && x->parent->right == x)
 		x = x->parent;
@@ -189,7 +171,7 @@ template <class T>
 NODE<T>* BST<T>::predecessor(nptr x)
 {
 	if (x->left)
-		return max(x->left);
+		return max_subtree(x->left);
 
 	while (x != root && x->parent->left == x)
 		x = x->parent;
@@ -209,7 +191,7 @@ void BST<T>::deletion(nptr x)
 		transparent(x, x->left);
 	else
 	{
-		nptr y = min(x->right);
+		nptr y = min_subtree(x->right);
 		if (y->parent != x)
 		{
 			transparent(y, y->right);
