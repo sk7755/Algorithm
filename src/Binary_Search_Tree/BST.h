@@ -25,6 +25,7 @@ private:
 	void transparent(nptr u, nptr v);
 	void cleaner(nptr x);
 	void print_tree(nptr x);
+
 public:
 	BST();
 	BST(T a[], int n);
