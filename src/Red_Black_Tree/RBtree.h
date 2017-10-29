@@ -1,22 +1,22 @@
-#ifndef __RBT_H__
-#define __RBT_H__
-
-enum COLOR{ RED,BLACK };
+#ifndef __RBtree_H__
+#define __RBtree_H__
 
 //if you inheritate NODE in BST, refer to https://stackoverflow.com/questions/27601537/java-self-reference-with-inhertiance
 //The reason I don't use inheritance is that I want this header file activate one complete unit.
-typedef struct NODE* nptr;
 
-struct NODE
+class RBtree
 {
-	int key;
-	nptr left, right;
-	nptr parent;
-	COLOR color;
-};
+public:
+	enum COLOR { RED, BLACK };
 
-class RBT
-{
+	struct NODE
+	{
+		int key;
+		NODE *left, *right, *parent;
+		COLOR color;
+	};
+
+	using nptr = NODE*;
 private:
 	nptr root;
 	int n;
@@ -33,7 +33,7 @@ private:
 	void cleaner(nptr x);
 
 public:
-	RBT();
+	RBtree();
 	void insertion(int key);
 	nptr search(int key);
 	void deletion(nptr x);
@@ -46,7 +46,7 @@ public:
 	nptr predecessor(nptr x);
 	void print();
 	void nonrecursive_print();
-	~RBT();
+	~RBtree();
 };
 
 #endif

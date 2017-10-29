@@ -1,19 +1,19 @@
-#ifndef __RBT_CPP__
-#define __RBT_CPP__
+#ifndef __RBtree_CPP__
+#define __RBtree_CPP__
 
-#include "RBT.h"
+#include "RBtree.h"
 #include <iostream>
 
 using namespace std;
 
-RBT::RBT() :n(0)
+RBtree::RBtree() :n(0)
 {
 	sentinel = new NODE;
 	sentinel->color = BLACK;
 	root = sentinel;
 }
 
-void RBT::insertion(int key)
+void RBtree::insertion(int key)
 {
 	nptr pnew = new NODE;
 	pnew->key = key;
@@ -41,7 +41,7 @@ void RBT::insertion(int key)
 	insert_fixup(pnew);
 }
 
-void RBT::insert_fixup(nptr x)
+void RBtree::insert_fixup(nptr x)
 {
 	while (x->parent->color == RED)
 	{
@@ -93,7 +93,7 @@ void RBT::insert_fixup(nptr x)
 	root->color = BLACK;
 }
 
-void RBT::deletion(nptr x)
+void RBtree::deletion(nptr x)
 {
 	if (x == sentinel)
 		return;
@@ -137,7 +137,7 @@ void RBT::deletion(nptr x)
 	n--;
 }
 
-void RBT::delete_fixup(nptr x)
+void RBtree::delete_fixup(nptr x)
 {
 	nptr w; //w is sibiling
 	while (x != root && x->color == BLACK)
@@ -210,7 +210,7 @@ void RBT::delete_fixup(nptr x)
 	x->color = BLACK;
 }
 
-nptr RBT::search(int key)
+RBtree::NODE* RBtree::search(int key)
 {
 	nptr x = root;
 
@@ -227,7 +227,7 @@ nptr RBT::search(int key)
 	return sentinel;
 }
 
-int RBT::black_height(nptr x)	//internal node
+int RBtree::black_height(nptr x)	//internal node
 {
 	int black_height = 0;
 
@@ -240,7 +240,7 @@ int RBT::black_height(nptr x)	//internal node
 	return black_height;
 }
 
-int RBT::isempty()
+int RBtree::isempty()
 {
 	if (n == 0)
 		return 1;
@@ -248,12 +248,12 @@ int RBT::isempty()
 		return 0;
 }
 
-int RBT::size()
+int RBtree::size()
 {
 	return n;
 }
 
-void RBT::transparent(nptr u, nptr v)
+void RBtree::transparent(nptr u, nptr v)
 {
 	if (u == root)
 		root = v;
@@ -265,7 +265,7 @@ void RBT::transparent(nptr u, nptr v)
 	v->parent = u->parent;
 }
 
-void RBT::left_rotation(nptr x)
+void RBtree::left_rotation(nptr x)
 {
 	nptr y = x->right;	//assume that x,y is not nullptr
 	x->right = y->left;
@@ -282,7 +282,7 @@ void RBT::left_rotation(nptr x)
 	x->parent = y;
 }
 
-void RBT::right_rotation(nptr x)
+void RBtree::right_rotation(nptr x)
 {
 	nptr y = x->left;	//assume that x,y is not nullptr
 	x->left = y->right;
@@ -299,7 +299,7 @@ void RBT::right_rotation(nptr x)
 	x->parent = y;
 }
 
-nptr RBT::min_subtree(nptr x)
+RBtree::NODE* RBtree::min_subtree(nptr x)
 {
 	if (x != sentinel)
 	{
@@ -309,7 +309,7 @@ nptr RBT::min_subtree(nptr x)
 	return x;
 }
 
-int RBT::min()
+int RBtree::min()
 {
 	nptr x = min_subtree(root);
 	if (root != sentinel)
@@ -318,7 +318,7 @@ int RBT::min()
 		throw new exception("root is sentinel");
 }
 
-nptr RBT::max_subtree(nptr x)
+RBtree::NODE* RBtree::max_subtree(nptr x)
 {
 	if (x != sentinel)
 	{
@@ -328,7 +328,7 @@ nptr RBT::max_subtree(nptr x)
 	return x;
 }
 
-int RBT::max()
+int RBtree::max()
 {
 	nptr x = max_subtree(root);
 	if (root != sentinel)
@@ -337,7 +337,7 @@ int RBT::max()
 		throw new exception("root is sentinel");
 }
 
-nptr RBT::successor(nptr x)
+RBtree::NODE* RBtree::successor(nptr x)
 {
 	if (x->right != sentinel)
 		return min_subtree(x->right);
@@ -348,7 +348,7 @@ nptr RBT::successor(nptr x)
 	return x->parent;
 }
 
-nptr RBT::predecessor(nptr x)
+RBtree::NODE* RBtree::predecessor(nptr x)
 {
 	if (x->left != sentinel)
 		return max_subtree(x->left);
@@ -359,7 +359,7 @@ nptr RBT::predecessor(nptr x)
 	return x->parent;
 }
 
-void RBT::print_tree(nptr x)
+void RBtree::print_tree(nptr x)
 {
 	if (x == sentinel)
 		return;
@@ -371,13 +371,13 @@ void RBT::print_tree(nptr x)
 	return;
 }
 
-void RBT::print()
+void RBtree::print()
 {
 	print_tree(root);
 	cout << endl;
 }
 
-void RBT::nonrecursive_print()
+void RBtree::nonrecursive_print()
 {
 	nptr x = root;
 	int pre = 0; //0 = parent, 1 = left child, 2 = right child 
@@ -420,7 +420,7 @@ void RBT::nonrecursive_print()
 	cout << endl;
 }
 
-void RBT::cleaner(nptr x)
+void RBtree::cleaner(nptr x)
 {
 	if (x == sentinel)
 		return;
@@ -429,7 +429,7 @@ void RBT::cleaner(nptr x)
 	delete x;
 }
 
-RBT::~RBT()
+RBtree::~RBtree()
 {
 	cleaner(root);
 	delete sentinel;

@@ -1,4 +1,5 @@
-#include "RBT.h"
+#include "RBtree.h"
+//#include "AVLtree.h"
 #include <iostream>
 
 using namespace std;
@@ -6,7 +7,8 @@ using namespace std;
 int main()
 {
 	try {
-		RBT T;
+		//AVLtree A;
+		RBtree T;
 
 		while (1)
 		{
