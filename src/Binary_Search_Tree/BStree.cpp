@@ -1,7 +1,7 @@
-#ifndef __BST_CPP__
-#define __BST_CPP__
+#ifndef __BSTREE_CPP__
+#define __BSTREE_CPP__
 
-#include "BST.h"
+#include "BStree.h"
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -9,10 +9,10 @@
 using namespace std;
 
 template <class T>
-BST<T>::BST() : n(0), root(nullptr) {}
+BStree<T>::BStree() : n(0), root(nullptr) {}
 
 template <class T>
-BST<T>::BST(T a[], int n)
+BStree<T>::BStree(T a[], int n)
 {
 	knuth_shuffle(a, n);
 	for (int i = 0; i < n; i++)
@@ -20,7 +20,7 @@ BST<T>::BST(T a[], int n)
 }
 
 template <class T>
-void BST<T>::knuth_shuffle(T a[], int n)
+void BStree<T>::knuth_shuffle(T a[], int n)
 {
 	init_seed();
 	for (int i = 0; i < n; i++)
@@ -30,20 +30,20 @@ void BST<T>::knuth_shuffle(T a[], int n)
 }
 
 template <class T>
-void BST<T>::init_seed()
+void BStree<T>::init_seed()
 {
 	srand(time(NULL));
 }
 
 template <class T>
-int BST<T>::uniform(int a, int b)
+int BStree<T>::uniform(int a, int b)
 {
 	int value = rand() | (rand() << 15);
 	return value % (b - a + 1) + a;
 }
 
 template <class T>
-int BST<T>::isempty()
+int BStree<T>::isempty()
 {
 	if (n == 0)
 		return 1;
@@ -52,13 +52,13 @@ int BST<T>::isempty()
 }
 
 template <class T>
-int BST<T>::size()
+int BStree<T>::size()
 {
 	return n;
 }
 
 template <class T>
-void BST<T>::insertion(T key)
+void BStree<T>::insertion(T key)
 {
 	nptr pnew = new NODE<T>;
 	pnew->key = key;
@@ -89,7 +89,7 @@ void BST<T>::insertion(T key)
 }
 
 template <class T>
-NODE<T>* BST<T>::search(T key)
+NODE<T>* BStree<T>::search(T key)
 {
 	nptr x = root;
 
@@ -107,7 +107,7 @@ NODE<T>* BST<T>::search(T key)
 }
 
 template <class T>
-void BST<T>::transparent(nptr u, nptr v)
+void BStree<T>::transparent(nptr u, nptr v)
 {
 	if (u == root)
 		root = v;
@@ -122,7 +122,7 @@ void BST<T>::transparent(nptr u, nptr v)
 
 
 template <class T>
-NODE<T>* BST<T>::min_subtree(nptr x)
+NODE<T>* BStree<T>::min_subtree(nptr x)
 {
 	while (x->left)
 		x = x->left;
@@ -131,7 +131,7 @@ NODE<T>* BST<T>::min_subtree(nptr x)
 }
 
 template <class T>
-T BST<T>::min()
+T BStree<T>::min()
 {
 	nptr x = min_subtree(root);
 	if (x)
@@ -139,7 +139,7 @@ T BST<T>::min()
 }
 
 template <class T>
-NODE<T>* BST<T>::max_subtree(nptr x)
+NODE<T>* BStree<T>::max_subtree(nptr x)
 {
 	while (x->right)
 		x = x->right;
@@ -148,7 +148,7 @@ NODE<T>* BST<T>::max_subtree(nptr x)
 }
 
 template <class T>
-T BST<T>::max()
+T BStree<T>::max()
 {
 	nptr x = max_subtree(root);
 	if (x)
@@ -156,7 +156,7 @@ T BST<T>::max()
 }
 
 template <class T>
-NODE<T>* BST<T>::successor(nptr x)
+NODE<T>* BStree<T>::successor(nptr x)
 {
 	if (x->right)
 		return min_subtree(x->right);
@@ -168,7 +168,7 @@ NODE<T>* BST<T>::successor(nptr x)
 }
 
 template <class T>
-NODE<T>* BST<T>::predecessor(nptr x)
+NODE<T>* BStree<T>::predecessor(nptr x)
 {
 	if (x->left)
 		return max_subtree(x->left);
@@ -180,7 +180,7 @@ NODE<T>* BST<T>::predecessor(nptr x)
 }
 
 template <class T>
-void BST<T>::deletion(nptr x)
+void BStree<T>::deletion(nptr x)
 {
 	if (x == nullptr)
 		return;
@@ -208,7 +208,7 @@ void BST<T>::deletion(nptr x)
 }
 
 template <class T>
-void BST<T>::nonrecursive_print()	//nonrecursive
+void BStree<T>::nonrecursive_print()	//nonrecursive
 {
 	nptr x = root;
 	int pre = 0; //0 = parent, 1 = left child, 2 = right child 
@@ -252,7 +252,7 @@ void BST<T>::nonrecursive_print()	//nonrecursive
 }
 
 template <class T>
-void BST<T>::print_tree(nptr x)
+void BStree<T>::print_tree(nptr x)
 {
 	if (x == nullptr)
 		return;
@@ -265,14 +265,14 @@ void BST<T>::print_tree(nptr x)
 }
 
 template <class T>
-void BST<T>::print()
+void BStree<T>::print()
 {
 	print_tree(root);
 	cout << endl;
 }
 
 template <class T>
-void BST<T>::cleaner(nptr x)
+void BStree<T>::cleaner(nptr x)
 {
 	if (x == nullptr)
 		return;
@@ -282,7 +282,7 @@ void BST<T>::cleaner(nptr x)
 }
 
 template <class T>
-BST<T>::~BST()
+BStree<T>::~BStree()
 {
 	cleaner(root);
 }

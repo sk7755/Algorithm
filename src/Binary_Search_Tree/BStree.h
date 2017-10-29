@@ -1,5 +1,5 @@
-#ifndef __BST_H__
-#define __BST_H__
+#ifndef __BSTREE_H__
+#define __BSTREE_H__
 
 template <class T>
 struct NODE
@@ -8,9 +8,8 @@ struct NODE
 	NODE *left, *right;
 	NODE *parent;
 };
-
 template <class T>
-class BST
+class BStree
 {
 private:
 	using nptr = NODE<T>*;
@@ -27,8 +26,8 @@ private:
 	void print_tree(nptr x);
 
 public:
-	BST();
-	BST(T a[], int n);
+	BStree();
+	BStree(T a[], int n);
 	int isempty();
 	int size();
 	void insertion(T key);
@@ -40,7 +39,7 @@ public:
 	T max();
 	void print();
 	void nonrecursive_print();
-	~BST();
+	~BStree();
 };
-#include "BST.cpp"
+#include "BStree.cpp"
 #endif
