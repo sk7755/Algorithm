@@ -13,11 +13,13 @@ public:
 	using nptr = NODE*;
 private:
 	nptr root;
+	nptr sentinel;
 	int n;
 
 	void balance(nptr x);
-	nptr min_subtree();
-	nptr max_subtree();
+	inline int max(int a, int b);
+	nptr min_subtree(nptr x);
+	nptr max_subtree(nptr x);
 	void transparent(nptr u, nptr v);
 	void left_rotation(nptr x);
 	void right_rotation(nptr x);
@@ -25,10 +27,10 @@ private:
 public:
 	AVLtree();
 	void insertion(int key);
-	nptr search();
+	nptr search(int key);
 	void deletion(nptr x);
 	int isempty();
-	int size;
+	int size();
 	int max();
 	int min();
 	nptr successor(nptr x);
