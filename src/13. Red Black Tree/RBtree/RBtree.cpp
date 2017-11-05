@@ -5,17 +5,20 @@
 #include <iostream>
 
 using namespace std;
+using namespace RBTREE;
 
-RBtree::RBtree() :n(0)
+template <class T>
+RBtree<T>::RBtree() :n(0)
 {
-	sentinel = new NODE;
+	sentinel = new NODE<T>;
 	sentinel->color = BLACK;
 	root = sentinel;
 }
 
-void RBtree::insertion(int key)
+template <class T>
+void RBtree<T>::insertion(T key)
 {
-	nptr pnew = new NODE;
+	nptr pnew = new NODE<T>;
 	pnew->key = key;
 	pnew->left = pnew->right = sentinel;
 	pnew->color = RED;
@@ -41,7 +44,8 @@ void RBtree::insertion(int key)
 	insert_fixup(pnew);
 }
 
-void RBtree::insert_fixup(nptr x)
+template <class T>
+void RBtree<T>::insert_fixup(nptr x)
 {
 	while (x->parent->color == RED)
 	{
@@ -93,7 +97,8 @@ void RBtree::insert_fixup(nptr x)
 	root->color = BLACK;
 }
 
-void RBtree::deletion(nptr x)
+template <class T>
+void RBtree<T>::deletion(nptr x)
 {
 	if (x == sentinel)
 		return;
@@ -137,7 +142,8 @@ void RBtree::deletion(nptr x)
 	n--;
 }
 
-void RBtree::delete_fixup(nptr x)
+template <class T>
+void RBtree<T>::delete_fixup(nptr x)
 {
 	nptr w; //w is sibiling
 	while (x != root && x->color == BLACK)
@@ -210,7 +216,8 @@ void RBtree::delete_fixup(nptr x)
 	x->color = BLACK;
 }
 
-RBtree::NODE* RBtree::search(int key)
+template <class T>
+NODE<T>* RBtree<T>::search(T key)
 {
 	nptr x = root;
 
@@ -227,7 +234,8 @@ RBtree::NODE* RBtree::search(int key)
 	return sentinel;
 }
 
-int RBtree::black_height(nptr x)	//internal node
+template <class T>
+int RBtree<T>::black_height(nptr x)	//internal node
 {
 	int black_height = 0;
 
@@ -240,7 +248,8 @@ int RBtree::black_height(nptr x)	//internal node
 	return black_height;
 }
 
-int RBtree::isempty()
+template <class T>
+int RBtree<T>::isempty()
 {
 	if (n == 0)
 		return 1;
@@ -248,12 +257,14 @@ int RBtree::isempty()
 		return 0;
 }
 
-int RBtree::size()
+template <class T>
+int RBtree<T>::size()
 {
 	return n;
 }
 
-void RBtree::transparent(nptr u, nptr v)
+template <class T>
+void RBtree<T>::transparent(nptr u, nptr v)
 {
 	if (u == root)
 		root = v;
@@ -265,7 +276,8 @@ void RBtree::transparent(nptr u, nptr v)
 	v->parent = u->parent;
 }
 
-void RBtree::left_rotation(nptr x)
+template <class T>
+void RBtree<T>::left_rotation(nptr x)
 {
 	nptr y = x->right;	//assume that x,y is not nullptr
 	x->right = y->left;
@@ -282,7 +294,8 @@ void RBtree::left_rotation(nptr x)
 	x->parent = y;
 }
 
-void RBtree::right_rotation(nptr x)
+template <class T>
+void RBtree<T>::right_rotation(nptr x)
 {
 	nptr y = x->left;	//assume that x,y is not nullptr
 	x->left = y->right;
@@ -299,7 +312,8 @@ void RBtree::right_rotation(nptr x)
 	x->parent = y;
 }
 
-RBtree::NODE* RBtree::min_subtree(nptr x)
+template <class T>
+NODE<T>* RBtree<T>::min_subtree(nptr x)
 {
 	if (x != sentinel)
 	{
@@ -309,7 +323,8 @@ RBtree::NODE* RBtree::min_subtree(nptr x)
 	return x;
 }
 
-int RBtree::min()
+template <class T>
+T RBtree<T>::min()
 {
 	nptr x = min_subtree(root);
 	if (root != sentinel)
@@ -318,7 +333,8 @@ int RBtree::min()
 		throw new exception("root is sentinel");
 }
 
-RBtree::NODE* RBtree::max_subtree(nptr x)
+template <class T>
+NODE<T>* RBtree<T>::max_subtree(nptr x)
 {
 	if (x != sentinel)
 	{
@@ -328,7 +344,8 @@ RBtree::NODE* RBtree::max_subtree(nptr x)
 	return x;
 }
 
-int RBtree::max()
+template <class T>
+T RBtree<T>::max()
 {
 	nptr x = max_subtree(root);
 	if (root != sentinel)
@@ -337,7 +354,8 @@ int RBtree::max()
 		throw new exception("root is sentinel");
 }
 
-RBtree::NODE* RBtree::successor(nptr x)
+template <class T>
+NODE<T>* RBtree<T>::successor(nptr x)
 {
 	if (x->right != sentinel)
 		return min_subtree(x->right);
@@ -348,7 +366,8 @@ RBtree::NODE* RBtree::successor(nptr x)
 	return x->parent;
 }
 
-RBtree::NODE* RBtree::predecessor(nptr x)
+template <class T>
+NODE<T>* RBtree<T>::predecessor(nptr x)
 {
 	if (x->left != sentinel)
 		return max_subtree(x->left);
@@ -359,7 +378,8 @@ RBtree::NODE* RBtree::predecessor(nptr x)
 	return x->parent;
 }
 
-void RBtree::print_tree(nptr x)
+template <class T>
+void RBtree<T>::print_tree(nptr x)
 {
 	if (x == sentinel)
 		return;
@@ -371,13 +391,15 @@ void RBtree::print_tree(nptr x)
 	return;
 }
 
-void RBtree::print()
+template <class T>
+void RBtree<T>::print()
 {
 	print_tree(root);
 	cout << endl;
 }
 
-void RBtree::nonrecursive_print()
+template <class T>
+void RBtree<T>::nonrecursive_print()
 {
 	nptr x = root;
 	int pre = 0; //0 = parent, 1 = left child, 2 = right child 
@@ -420,7 +442,8 @@ void RBtree::nonrecursive_print()
 	cout << endl;
 }
 
-void RBtree::cleaner(nptr x)
+template <class T>
+void RBtree<T>::cleaner(nptr x)
 {
 	if (x == sentinel)
 		return;
@@ -429,7 +452,8 @@ void RBtree::cleaner(nptr x)
 	delete x;
 }
 
-RBtree::~RBtree()
+template <class T>
+RBtree<T>::~RBtree()
 {
 	cleaner(root);
 	delete sentinel;

@@ -1,14 +1,14 @@
 #include "RBtree.h"
-//#include "AVLtree.h"
 #include <iostream>
 
 using namespace std;
+using namespace RBTREE;
 
 int main()
 {
 	try {
 		//AVLtree A;
-		RBtree T;
+		RBtree<int> T;
 
 		while (1)
 		{
