@@ -7,7 +7,7 @@ int main()
 {
 	try {
 		//AVLtree A;
-		AVLtree T;
+		AVLtree<int> T;
 
 		while (1)
 		{
@@ -26,14 +26,13 @@ int main()
 				break;
 			case 3:
 				T.print();
-				T.nonrecursive_print();
 				break;
 			case 4:
 				cin >> key;
 				cout << T.successor(T.search(key))->key << ' ' << T.predecessor(T.search(key))->key << endl;
 				break;
 			case 5:
-				cout << T.min() << ' ' << T.max() << endl;
+				cout << T.height() << endl;
 				break;
 			}
 		}
