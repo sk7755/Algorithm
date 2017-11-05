@@ -7,6 +7,7 @@
 #include <cstdlib>
 
 using namespace std;
+using namespace BSTREE;
 
 template <class T>
 BStree<T>::BStree() : n(0), root(nullptr) {}
@@ -119,7 +120,6 @@ void BStree<T>::transparent(nptr u, nptr v)
 	if (v != nullptr)
 		v->parent = u->parent;
 }
-
 
 template <class T>
 NODE<T>* BStree<T>::min_subtree(nptr x)
