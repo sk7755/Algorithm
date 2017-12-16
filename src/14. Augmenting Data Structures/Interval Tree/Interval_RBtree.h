@@ -60,6 +60,7 @@ namespace INTERVAL_RBTREE
 		int size();
 		void print();
 		void nonrecursive_print();
+
 		~Interval_RBtree();
 	};
 }
