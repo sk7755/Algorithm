@@ -61,6 +61,9 @@ int main()
 				dp[j] = dp[j - (int)a[i].w] + a[i].p;
 		}
 	}
+	//If dp[j-(int)a[i].w] == 0
+	//It means that dp[j] has small jewlery than value j so that dp[j] covers dp[0 ~ j-1].
+
 	cout << "0-1 Knapsack Problem : " << dp[(int)knapsack] << '$' << endl;
 
 }
